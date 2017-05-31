@@ -32,7 +32,7 @@ names(periods) = c("8PCW","9PCW","12PCW","13PCW","16PCW","17PCW","19PCW","21PCW"
 metaData[,"period"] <- apply(metaData,1,function(x) periods[names(periods)==x["Age"]])
 
 # Load data matrix - editing level measurements
-dataMatrix <- read.table(gzfile("../data/dataMatrix.txt"),sep="\t",header=TRUE,row.name=1)
+dataMatrix <- read.table(gzfile("../data/dataMatrix.txt.gz"),sep="\t",header=TRUE,row.name=1)
 
 # Get rid of rows with maximum value of zero
 dataMatrix <- t(dataMatrix[apply(dataMatrix,1,function(x) max(x[which(!is.na(x))])>0),])
